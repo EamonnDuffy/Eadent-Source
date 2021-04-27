@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Eadent.Helpers;
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Eadent
 {
@@ -11,7 +8,10 @@ namespace Eadent
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Utility Utility = new Utility();
 
+            LabelVersion.Text = Utility.GetVersion();
+            LabelCopyright.Text = Utility.FormatCopyright(LabelCopyright.Text);
         }
     }
 }

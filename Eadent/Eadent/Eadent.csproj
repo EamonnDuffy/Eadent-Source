@@ -124,6 +124,20 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="DataAccess.Xml\ContactFile.xsc">
+      <DependentUpon>ContactFile.xsd</DependentUpon>
+    </Content>
+    <None Include="DataAccess.Xml\ContactFile.xsd" />
+    <Content Include="DataAccess.Xml\ContactFile.xss">
+      <DependentUpon>ContactFile.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataAccess.Xml\MessageFile.xsc">
+      <DependentUpon>MessageFile.xsd</DependentUpon>
+    </Content>
+    <None Include="DataAccess.Xml\MessageFile.xsd" />
+    <Content Include="DataAccess.Xml\MessageFile.xss">
+      <DependentUpon>MessageFile.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -177,6 +191,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess.Xml\Configuration.cs" />
+    <Compile Include="DataAccess.Xml\Contact.cs" />
+    <Compile Include="DataAccess.Xml\ContactFile.Designer.cs" />
+    <Compile Include="DataAccess.Xml\Message.cs" />
+    <Compile Include="DataAccess.Xml\MessageFile.Designer.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +206,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

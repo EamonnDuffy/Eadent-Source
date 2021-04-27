@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Eadent")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Copyright © 2003-2021 Eadent. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,19 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion(AssemblyInfo.VersionMajor + "." + AssemblyInfo.VersionMinor + "." + AssemblyInfo.VersionBuild + "." + AssemblyInfo.VersionRevision)]
+[assembly: AssemblyFileVersion(AssemblyInfo.VersionMajor + "." + AssemblyInfo.VersionMinor + "." + AssemblyInfo.VersionBuild + "." + AssemblyInfo.VersionRevision)]
+
+internal class AssemblyInfo
+{
+    internal const int CopyrightStartYear = 2003;
+
+    // Keep the Version as components so that code can decide how much of the Version to use.
+    internal const string VersionMajor = "2";
+    internal const string VersionMinor = "0";
+    internal const string VersionBuild = "0";
+    internal const string VersionRevision = "0";
+
+    internal const string Domain = "www.Eadent.com"; // TODO: Consider getting from Configuration?
+}
+
