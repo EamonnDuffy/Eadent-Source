@@ -97,45 +97,18 @@ namespace Eadent
                                 {
                                     Utility Utility = new Utility();
 
-                                    // TODO: Consider using an e-mail for the domain to see if message will arrive [faster?].
+                                    string htmlBody =
+                                        "Name: " + TextName.Text + "<br>" +
+                                        "E-Mail: " + TextEMailAddress.Text + "<br>" +
+                                        "Date (UTC): " + Utility.GetDate() + "<br>" +
+                                        "Time (UTC): " + Utility.GetTime() + "<br>" +
+                                        "Domain: " + AssemblyInfo.Domain + "<br>" +
+                                        "Url: " + Url + "<br>" +
+                                        "Guid: " + Guid + "<br>" +
+                                        "Message:<br><br>" +
+                                        TextMessage.Text.Replace("\n", "<br>");
 
-                                    //MailMessage Message = new MailMessage("From.WebPage@ProtectAddress.biz", "From.WebPage@ProtectAddress.biz");
-                                    //Message.Subject = AssemblyInfo.Domain + ": Someone has sent a message from the web.";
-                                    //Message.Body =
-                                    //    "Name: " + TextName.Text + "\n" +
-                                    //    "E-Mail: " + TextEMailAddress.Text + "\n" +
-                                    //    "Date (UTC): " + Utility.GetDate() + "\n" +
-                                    //    "Time (UTC): " + Utility.GetTime() + "\n" +
-                                    //    "Domain: " + AssemblyInfo.Domain + "\n" +
-                                    //    "Url: " + Url + "\n" +
-                                    //    "Guid: " + Guid + "\n" +
-                                    //    "Message:\n\n" +
-                                    //    TextMessage.Text;
-                                    ////Message.IsBodyHtml = true;    // Use with caution. Need to format Message.Body and/or send a multi-part message.
-
-                                    //SmtpClient Smtp = new SmtpClient();
-
-                                    //NetworkCredential Credentials = new NetworkCredential("From.WebPage@ProtectAddress.biz", "WebMail1");
-
-                                    ////Smtp.EnableSsl = true;
-                                    ////Smtp.Port = 465;
-                                    ////string SmtpHost = "k2smtpout.secureserver.net"; // 3-Oct-2009. Does not seem to work.
-
-                                    //string SmtpHost = "relay-hosting.secureserver.net";
-                                    //if (Request.Url != null)
-                                    //{
-                                    //    if (Request.Url.ToString().Substring(0, 16) == "http://localhost")
-                                    //        SmtpHost = "smtpout.secureserver.net";
-                                    //}
-
-                                    //// TODO: Remove the next line.
-                                    ////throw new Exception("Pretending not to send.");
-
-                                    //Smtp.Host = SmtpHost;
-                                    //Smtp.Port = 25;
-                                    //Smtp.UseDefaultCredentials = false;
-                                    //Smtp.Credentials = Credentials; // 1-Oct-2009. Does not seem to be required for relay-hosting case.
-                                    //Smtp.Send(Message);
+                                    EMail.Send("Eadent Web Site", "From.Web.Site@Eadent.com", AssemblyInfo.Domain + ": Someone has sent a message from the Eadent Web Site.", htmlBody);
 
                                     SubmitResult = ContactData.UpdateAsSent(FilePath, Guid, RemoteAddress);
 
